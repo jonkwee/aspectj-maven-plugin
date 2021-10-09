@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>aspectj-maven-plugin</artifactId>
-  <version>1.14.1-SNAPSHOT</version>
+  <version>1.14.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Mojo's AspectJ Maven Plugin</name>
@@ -21,10 +21,11 @@
   <inceptionYear>2005</inceptionYear>
   <properties>
     <aspectjVersion>1.9.7</aspectjVersion>
-    <mavenVersion>3.3.9</mavenVersion>
+    <mavenVersion>3.8.1</mavenVersion>
     <doxiaVersion>1.10</doxiaVersion>
     <doxiaSitetoolsVersion>1.10</doxiaSitetoolsVersion>
-    <mojo.java.target>1.8</mojo.java.target> <!-- aspectJ &gt; 1.8.13 is JDK 1.8 minimum -->
+    <mojo.java.target>11</mojo.java.target>
+    <apacheCollectionVersion>4.4</apacheCollectionVersion>
     <project.build.outputTimestamp>2021-07-29T20:50:38Z</project.build.outputTimestamp>
     <!-- work around until it is correctly fixed at top parent -->
     <scmpublish.content>${project.build.directory}/staging/aspectj-maven-plugin</scmpublish.content>
@@ -132,26 +133,10 @@
         <scope>provided</scope>
     </dependency>
 
-    <!-- Reporting -->
     <dependency>
-        <groupId>org.apache.maven.reporting</groupId>
-        <artifactId>maven-reporting-api</artifactId>
-        <version>3.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.maven.doxia</groupId>
-        <artifactId>doxia-sink-api</artifactId>
-        <version>${doxiaVersion}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.maven.doxia</groupId>
-        <artifactId>doxia-site-renderer</artifactId>
-        <version>${doxiaSitetoolsVersion}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.maven.reporting</groupId>
-        <artifactId>maven-reporting-impl</artifactId>
-        <version>3.0.0</version>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${apacheCollectionVersion}</version>
     </dependency>
 
     <dependency>
@@ -190,6 +175,18 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>6.1.1</version>
+          <executions>
+              <execution>
+                <goals>
+                    <goal>check</goal>
+                </goals>
+              </execution>
+          </executions>
+        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
