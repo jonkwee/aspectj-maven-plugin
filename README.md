@@ -12,6 +12,10 @@ Forked from [mojohaus's aspectj-maven-plugin](https://github.com/mojohaus/aspect
 
 * velocity-tools-2.0 [MEDIUM IN SEVERITY]: The default error page for VelocityView in Apache Velocity Tools prior to 3.1 reflects back the vm file that was entered as part of the URL. An attacker can set an XSS payload file as this vm file in the URL which results in this payload being executed. XSS vulnerabilities allow attackers to execute arbitrary JavaScript in the context of the attacked website and the attacked user. This can be abused to steal session cookies, perform requests in the name of the victim or for phishing attacks.
 
+## Noteworthy Changes
+* Unable to generate site and reports as those functionalities are directly tied to the doxia-site-renderer dependency.
+* Upgraded maven version to support 3.8.1.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Maven Central](https://img.shields.io/maven-central/v/org.codehaus.mojo/aspectj-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/artifact/org.codehaus.mojo/aspectj-maven-plugin)
 [![GitHub CI](https://github.com/mojohaus/aspectj-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/mojohaus/aspectj-maven-plugin/actions/workflows/maven.yml)
