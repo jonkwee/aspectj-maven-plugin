@@ -15,6 +15,8 @@ Forked from [mojohaus's aspectj-maven-plugin](https://github.com/mojohaus/aspect
 ## Noteworthy Changes
 * Unable to generate site and reports as those functionalities are directly tied to the doxia-site-renderer dependency.
 * Upgraded maven version to support 3.8.1.
+* Added OWASP's SCA tool to generate reports of possible vulnerabilities from dependencies. Can be activated through the command `mvn dependency-check:check`. The report will be generated in the target folder.
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Maven Central](https://img.shields.io/maven-central/v/org.codehaus.mojo/aspectj-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/artifact/org.codehaus.mojo/aspectj-maven-plugin)
